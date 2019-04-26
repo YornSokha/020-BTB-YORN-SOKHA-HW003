@@ -10,6 +10,10 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+
+
 </head>
 
 <body>
@@ -18,13 +22,11 @@
             <div class="col col-md-12">
                 <div class="row">
                     <div class="col col-md-2">
-                        <form action="">
-                            <div class="form-group">
-                                <label for="">Input number</label>
-                                <input type="text" id="number" name="number" placeholder="Input number"
-                                    class="form-control">
-                            </div>
-                        </form>
+                        <div class="form-group">
+                            <label for="">Input number</label>
+                            <input type="text" id="number" name="number" placeholder="Input number" class="form-control"
+                                onchange="enterKey()">
+                        </div>
                     </div>
                 </div>
                 <p id="message"></p>
@@ -50,8 +52,9 @@
                     <div class="col col-md-12">
                         <div class="card">
                             <div class="card-header">
-                                    <h5 class="card-title">Welcome to Star</h5>
-                                    <h6 class="card-subtitle mb-2 text-muted">This is a simple print star from shape 1 to 7</h6>
+                                <h5 class="card-title">Welcome to Star</h5>
+                                <h6 class="card-subtitle mb-2 text-muted">This is a simple print star from shape 1 to 7
+                                </h6>
                             </div>
                             <div class="card-body">
                                 <p id="shape"></p>

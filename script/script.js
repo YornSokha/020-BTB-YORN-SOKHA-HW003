@@ -1,5 +1,15 @@
+var input = document.getElementById('number');
+
+function enterKey(){
+    Swal.fire({
+        title: 'Error!',
+        text: 'Please click button to specify the style!',
+        type: 'error',
+        confirmButtonText: 'OK'
+    });
+}
+
 function validation(btnNumber) {
-    var input = document.getElementById('number');
     var message = document.getElementById('message');
     try {
         if (input.value === "") throw 'You must enter number';
@@ -8,10 +18,18 @@ function validation(btnNumber) {
         message.setAttribute('style', 'visibility:hidden');
         printShape(input.value, btnNumber);
     } catch (err) {
-        message.innerHTML = err;
-        message.setAttribute('style', 'visibility:visible');
+        Swal.fire({
+            title: 'Error!',
+            text: err,
+            type: 'error',
+            confirmButtonText: 'OK'
+        }).then(function(){
+        input.value = '';
+        input.focus()
+    });
     }
 }
+
 
 function printShape(n, btnNumber) {
     switch (btnNumber) {
@@ -91,7 +109,7 @@ function printShape3(n) {
         // values changing acc. to requirement 
         if (i < n - 1) {
             shape.innerHTML += '.';
-            for (j = ((n - i) * 2)-2; j > 1; j--) {
+            for (j = ((n - i) * 2) - 2; j > 1; j--) {
                 // printing spaces 
                 shape.innerHTML += '..';
             }
@@ -101,7 +119,7 @@ function printShape3(n) {
         //  values changing acc. to outer loop 
         for (j = 0; j <= (i * 2); j++) {
             // printing stars 
-            shape.innerHTML += '* ';
+            shape.innerHTML += '*';
         }
 
         // ending line after each row 
@@ -129,7 +147,7 @@ function printShape4(n) {
         //  values changing acc. to outer loop 
         for (j = 0; j < (i * 2 - 1); j++) {
             // printing stars 
-            shape.innerHTML += '* ';
+            shape.innerHTML += '*';
         }
 
         // ending line after each row 
