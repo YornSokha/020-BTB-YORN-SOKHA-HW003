@@ -10,81 +10,86 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
+    <link rel="stylesheet" href="css/style.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+
+
+    <link href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.4.0/css/bootstrap4-toggle.min.css"
+        rel="stylesheet">
 
 
 </head>
 
 <body>
-    <div class="container">
-        <div class="row">
-            <div class="col col-md-12">
-                <div class="row">
-                    <div class="col col-md-2">
-                        <div class="form-group">
-                            <label for="">Input number</label>
-                            <input type="text" id="number" name="number" placeholder="Input number" class="form-control"
-                                onchange="enterKey()">
-                        </div>
-                    </div>
-                </div>
-                <p id="message"></p>
-                <div class="row">
-                    <div class="col col-md-12">
-                        <button class="btn btn-primary mr-4" data-toggle="modal" data-target="#modal"
-                            onclick="validation(1)">Button 1</button>
-                        <button class="btn btn-secondary mr-4" data-toggle="modal" data-target="#modal"
-                            onclick="validation(2)">Button 2</button>
-                        <button class="btn btn-info mr-4" data-toggle="modal" data-target="#modal"
-                            onclick="validation(3)">Button 3</button>
-                        <button class="btn btn-success mr-4" data-toggle="modal" data-target="#modal"
-                            onclick="validation(4)">Button 4</button>
-                        <button class="btn btn-warning mr-4" data-toggle="modal" data-target="#modal"
-                            onclick="validation(5)">Button 5</button>
-                        <button class="btn btn-danger mr-4" data-toggle="modal" data-target="#modal"
-                            onclick="validation(6)">Button 6</button>
-                        <button class="btn btn-light mr-4" data-toggle="modal" data-target="#modal"
-                            onclick="validation(7)">Button 7</button>
-                    </div>
-                </div>
-                <div class="row mt-5">
-                    <div class="col col-md-12">
-                        <div class="card">
-                            <div class="card-header">
-                                <h5 class="card-title">Welcome to Star</h5>
-                                <h6 class="card-subtitle mb-2 text-muted">This is a simple print star from shape 1 to 7
-                                </h6>
-                            </div>
-                            <div class="card-body">
-                                <p id="shape"></p>
+    <div class="area">
+        <ul class="circles">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>            
+        </ul>
+    </div>
+    <div class="context">
+        <div class="container">
+            <div class="row">
+                <div class="col col-md-12">
+                    <div class="row d-flex justify-content-center">
+                        <div class="col col-md-4">
+                            <div class="form-group text-center">
+                                <h1>Input Number</h1>
+                                <input type="text" id="number" name="number" placeholder="Input number"
+                                    class="form-control">
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="modal" id="" tabindex="-1" role="dialog">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title">Error Input</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
+                    <div class="row">
+                        <div class="col col-md-12 d-flex justify-content-center">
+                            <button id="1" class="btn btn-primary mr-4" onclick="validation(1)">Style
+                                1</button>
+                            <button id="2" class="btn btn-secondary mr-4" onclick="validation(2)">Style
+                                2</button>
+                            <button id="3" class="btn btn-info mr-4" onclick="validation(3)">Style
+                                3</button>
+                            <button id="4" class="btn btn-success mr-4" onclick="validation(4)">Style
+                                4</button>
+                            <button id="5" class="btn btn-warning mr-4" onclick="validation(5)">Style
+                                5</button>
+                            <button id="6" class="btn btn-danger mr-4" onclick="validation(6)">Style
+                                6</button>
+                            <button id="7" class="btn btn-light mr-4" onclick="validation(7)">Style
+                                7</button>
+                            <button id="btn-random" data-status="stop" class="btn btn-light mr-4" onclick="validation(0)">Random</button>
+                            <input type="checkbox" id="random" checked data-toggle="toggle" data-size="md"
+                                onchange="random()">
+                        </div>
                     </div>
-                    <div class="modal-body">
-                        <p id="message">Modal body text goes here.</p>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
+                    <div class="row mt-5">
+                        <div class="col col-md-10 offset-1">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h5 class="card-title">Welcome to Emoji Generator</h5>
+                                    <h6 class="card-subtitle mb-2 text-muted">This is the result.                                        
+                                    </h6>
+                                </div>
+                                <div class="card-body">
+                                    <p id="shape"></p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
+
+
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
@@ -96,6 +101,10 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
+
+
+    <script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.4.0/js/bootstrap4-toggle.min.js"></script>
+
     <script src="script/script.js"></script>
 </body>
 
